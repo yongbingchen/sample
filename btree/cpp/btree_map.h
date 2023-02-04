@@ -467,7 +467,6 @@ class BTreeMap {
     left_child->children[left_child->size()] =
         std::move(right_child->children[right_child_size]);
 
-    parent->children[merge_to_idx] = std::move(left_child);
     // Move all other right children ahead one slot, implictly release the
     // right_child node.
     for (auto i = merge_to_idx + 1; i < 2 * B; i++) {
